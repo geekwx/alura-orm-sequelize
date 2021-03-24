@@ -13,7 +13,12 @@ router.delete('/pessoas/:id', PessoaController.apagaPessoa)
 
 //  Criando as rotas de matricula
 
+router.get('/pessoas/:estudanteId/matricula/', PessoaController.pegarTodasMatricula)
 router.get('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.pegarUmaMatricula)
+router.post('/pessoas/:estudanteId/matricula', PessoaController.criaMatricula)
+router.put('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.atualizaMatricula)
+router.delete('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.apagaMatricula)
+
 
 
 module.exports = router
