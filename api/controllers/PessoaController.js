@@ -1,3 +1,4 @@
+const { DatabaseError } = require('sequelize/types')
 const database = require('../models')
 
 class PessoaController {
@@ -59,6 +60,20 @@ class PessoaController {
             return res.status(200).json({ mensagem: `id ${id} deletado`})
             
           }catch(error){
+            return res.status(500).json(error.message)
+        }
+      }
+      // Funcoes para resturar Pessoa
+      static async restauraPessoa(req, res){
+        const { id} = req.params
+        try {
+          await database.Pessoas.restore({
+            where: {
+              Id: Number(id)
+            }
+          }) 
+          return res.status(200).json({ mensagem: `id ${id} restaurado com sucesso`})
+        }catch(error){
             return res.status(500).json(error.message)
         }
       }

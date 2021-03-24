@@ -11,6 +11,9 @@ router.post('/pessoas', PessoaController.criaPessoa)
 router.put('/pessoas/:id', PessoaController.atualizaPessoa)
 router.delete('/pessoas/:id', PessoaController.apagaPessoa)
 
+//rota para restaurar
+router.post('/pessoas/:id/restaura', PessoaController.restauraPessoa)
+
 //  Criando as rotas de matricula
 
 router.get('/pessoas/:estudanteId/matricula/', PessoaController.pegarTodasMatricula)
